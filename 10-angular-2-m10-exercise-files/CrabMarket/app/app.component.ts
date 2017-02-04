@@ -1,0 +1,27 @@
+import { Component } from '@angular/core';
+
+import { ProductService } from './products/product.service';
+
+@Component({
+    selector: 'pm-app',
+    template: `
+    <div>
+        <nav class='navbar navbar-default'>
+            <div class='container-fluid'>
+                <a class='navbar-brand'>{{pageTitle}}</a>
+                <ul class='nav navbar-nav'>
+                    <li><a [routerLink]="['/welcome']">主页</a></li>
+                    <li><a [routerLink]="['/products']">产品列表</a></li>
+                </ul>
+            </div>
+        </nav>
+        <div class='container'>
+            <router-outlet></router-outlet>
+        </div>
+     </div>
+     `,
+    providers: [ ProductService ]
+})
+export class AppComponent {
+    pageTitle: string = `美味螃蟹市场`;
+}
